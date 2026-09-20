@@ -34,3 +34,4 @@
   2. Copy the redisearch.so file into redis directory.
   3. Build Redis.
 - Generated the patch file for the `redis/redis` repo.
+- Added scripts to generate and load sample datasets.
