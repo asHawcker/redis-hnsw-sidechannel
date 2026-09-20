@@ -33,4 +33,4 @@
   1. Build RediSearch with the changes that were made.
   2. Copy the redisearch.so file into redis directory.
   3. Build Redis.
-- Generated the patch file for teh
+- Generated the patch file for the `redis/redis` repo.
