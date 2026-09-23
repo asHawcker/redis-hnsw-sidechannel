@@ -35,3 +35,19 @@
   3. Build Redis.
 - Generated the patch file for the `redis/redis` repo.
 - Added scripts to generate and load sample datasets.
+
+## 23-9-2026
+
+- Modify the timing printing code to write to file and collect.
+- Instead of writing to a file I am just writing to stderr and capturing it in the terminal, then, a seperate script picks out the timings into a csv. `collect_timings.py`
+- The script should be run from the `scripts` folder.
+- Added a `benchmark.py` to execute any number of queries to the Redis DB. The benchmark uses a different seed `128` for the random generations whereas the install script used `7236`.
+
+So the steps to get the data would be.
+
+1. `cd ~/projects/redis-sidechannel-hnsw/experiments`
+2. `python3 benchmark.py`
+3. `cd ../scripts`
+4. `python3 collect_timings.py`
+
+The data is now saved in results/hnsw_timings.csv
