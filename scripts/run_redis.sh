@@ -14,6 +14,7 @@ sleep 1
 fi
 
 cd "$REDIS_DIR"
-./src/redis-server redis-full.conf --port 6380
+# ./src/redis-server redis-full.conf --port 6380
+./src/redis-server redis-full.conf --port 6380 2> ../redis-sidechannel-hnsw/results/hnsw_timings.log
 
 echo "==> Redis started on port 6380"

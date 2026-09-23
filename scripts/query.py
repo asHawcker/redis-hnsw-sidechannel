@@ -1,5 +1,6 @@
 import redis
 import struct
+import numpy as np
 
 print("Starting...")
 
@@ -7,14 +8,17 @@ r = redis.Redis(host="localhost", port=6380)
 
 print("Connected:", r.ping())
 
-query = struct.pack("3f", 1.0, 0.0, 0.0)
+dim = 128
+
+query = np.random.random(dim).astype(np.float32)
+query_data = struct.pack(f"{dim}f", *query)
 
 print("Running query...")
 
 result = r.execute_command(
     "FT.SEARCH",
     "idx",
-    "*=>[KNN 2 @vector $q AS distance]",
+    "*=>[KNN 10 @vector $q AS distance]",
     "PARAMS",
     "2",
     "q",
